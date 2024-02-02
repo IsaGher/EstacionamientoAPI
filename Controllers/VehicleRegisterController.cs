@@ -24,7 +24,7 @@ namespace EstacionamientoAPI.Controllers
                 return NotFound();
             }
 
-            var datos = await _dbContext.VehicleRegisters.ToListAsync();
+            //var datos = await _dbContext.VehicleRegisters.ToListAsync();
             return await _dbContext.VehicleRegisters.ToListAsync();
         }
 
@@ -89,7 +89,7 @@ namespace EstacionamientoAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ExiteVehiculo(id))
+                if (!ExisteVehiculo(id))
                 {
                     return NotFound();
                 }
@@ -101,7 +101,7 @@ namespace EstacionamientoAPI.Controllers
             return Ok();
         }
 
-        private bool ExiteVehiculo(string id)
+        private bool ExisteVehiculo(string id)
         {
             return (_dbContext.VehicleRegisters?.Any(i => i.PlateNumber == id)).GetValueOrDefault();
         }
