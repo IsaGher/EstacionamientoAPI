@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace EstacionamientoAPI.Models;
 
@@ -7,7 +8,7 @@ public partial class ParkingRecord
 {
     public int IdParkingRecord { get; set; }
 
-    public string PlateNumber { get; set; } = null!;
+    public string PlateNumber { get; set; }
 
     public bool IsActive { get; set; }
 
@@ -23,5 +24,6 @@ public partial class ParkingRecord
 
     public DateTime? UpdateDate { get; set; }
 
-    public virtual VehicleRegister PlateNumberNavigation { get; set; } = null!;
+    /*[JsonIgnore]
+    public virtual VehicleRegister PlateNumberNavigation { get; set; }*/
 }

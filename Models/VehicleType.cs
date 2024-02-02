@@ -15,5 +15,5 @@ public partial class VehicleType
 
     public DateTime? UpdateDate { get; set; }
 
-    public virtual ICollection<VehicleRegister> VehicleRegisters { get; set; } = new List<VehicleRegister>();
+    //public virtual ICollection<VehicleRegister> VehicleRegisters { get; set; } = new List<VehicleRegister>();
 }

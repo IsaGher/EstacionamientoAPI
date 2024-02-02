@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace EstacionamientoAPI.Models;
 
@@ -13,7 +14,8 @@ public partial class VehicleRegister
 
     public DateTime? UpdateDate { get; set; }
 
-    public virtual VehicleType IdVehicleTypeNavigation { get; set; } = null!;
+    /*[JsonIgnore]
+    public virtual VehicleType IdVehicleTypeNavigation { get; set; }
 
-    public virtual ICollection<ParkingRecord> ParkingRecords { get; set; } = new List<ParkingRecord>();
+    public virtual ICollection<ParkingRecord> ParkingRecords { get; set; } = new List<ParkingRecord>();*/
 }

@@ -28,7 +28,7 @@ public partial class DbparkingContext : DbContext
     {
         modelBuilder.Entity<ParkingRecord>(entity =>
         {
-            entity.HasKey(e => new { e.IdParkingRecord, e.PlateNumber });
+            entity.HasKey(e => e.IdParkingRecord);
 
             entity.ToTable("PARKING_RECORD");
 
@@ -57,10 +57,10 @@ public partial class DbparkingContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("updateDate");
 
-            entity.HasOne(d => d.PlateNumberNavigation).WithMany(p => p.ParkingRecords)
+            /*entity.HasOne(d => d.PlateNumberNavigation).WithMany(p => p.ParkingRecords)
                 .HasForeignKey(d => d.PlateNumber)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_PARKING_RECORD_VEHICLE_REGISTER");
+                .HasConstraintName("FK_PARKING_RECORD_VEHICLE_REGISTER");*/
         });
 
         modelBuilder.Entity<VehicleRegister>(entity =>
@@ -81,10 +81,10 @@ public partial class DbparkingContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("updateDate");
 
-            entity.HasOne(d => d.IdVehicleTypeNavigation).WithMany(p => p.VehicleRegisters)
+            /*entity.HasOne(d => d.IdVehicleTypeNavigation).WithMany(p => p.VehicleRegisters)
                 .HasForeignKey(d => d.IdVehicleType)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_VEHICLE_REGISTER_VEHICLE_TYPE");
+                .HasConstraintName("FK_VEHICLE_REGISTER_VEHICLE_TYPE");*/
         });
 
         modelBuilder.Entity<VehicleType>(entity =>
